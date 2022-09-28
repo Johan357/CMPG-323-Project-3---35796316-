@@ -1,5 +1,6 @@
 ﻿using DeviceManagement_WebApp.Data;
 using DeviceManagement_WebApp.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,11 +8,11 @@ using System.Threading.Tasks;
 
 namespace DeviceManagement_WebApp.Repository
 {
-    public class CategoriesRepository :GenericRepository<Category>, ICategoriesRepository
+    public class DevicesRepository : GenericRepository<Device>, IDeviceRepository
     {
-        public CategoriesRepository(ConnectedOfficeContext context): base(context)
+        public DevicesRepository(ConnectedOfficeContext context) : base(context)
         {
-            
+
         }        
     }
 }

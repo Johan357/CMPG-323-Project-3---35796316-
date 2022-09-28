@@ -6,8 +6,7 @@ using System.Threading.Tasks;
 
 namespace DeviceManagement_WebApp.Repository
 {
-    public interface ICategoriesRepository : IGenericRepository<Category>
-    {
-        
+    public interface IDeviceRepository : IGenericRepository<Device>
+    {       
     }
 }

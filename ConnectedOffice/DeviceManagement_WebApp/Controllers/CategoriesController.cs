@@ -12,11 +12,10 @@ using DeviceManagement_WebApp.Repository;
 namespace DeviceManagement_WebApp.Controllers
 {
     public class CategoriesController : Controller
-    {
-        private readonly ConnectedOfficeContext _context;
-        private readonly ICategoriesRepository _categoriesRepository;
+    {        
+        private readonly ICategoriesRepository _categoriesRepository;                       //assign interface class 
 
-        public CategoriesController(ICategoriesRepository categoriesRepository)
+        public CategoriesController(ICategoriesRepository categoriesRepository)             //changed constructor to make use of interface class 
         {
             _categoriesRepository = categoriesRepository;
         }
@@ -24,7 +23,7 @@ namespace DeviceManagement_WebApp.Controllers
         // GET: Categories
         public async Task<IActionResult> Index()
         {            
-            return View(_categoriesRepository.GetAll());
+            return View(_categoriesRepository.GetAll());             //added use of repository class
         }
 
         // GET: Categories/Details/5   //GET by ID
@@ -60,6 +59,7 @@ namespace DeviceManagement_WebApp.Controllers
         {
             category.CategoryId = Guid.NewGuid();
             _categoriesRepository.Add(category);
+            _categoriesRepository.SaveChanges();
             
             return RedirectToAction(nameof(Index));
         }
@@ -133,7 +133,7 @@ namespace DeviceManagement_WebApp.Controllers
                 return NotFound();
             }
             var category = _categoriesRepository.GetById((Guid)id);
-            //var category = _categoriesRepository.Find(m => m.CategoryId == id);
+            
             if (category == null)
             {
                 return NotFound();

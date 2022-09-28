@@ -6,12 +6,12 @@ using System.Linq;
 using System.Threading.Tasks;
 
 namespace DeviceManagement_WebApp.Repository
-{
-    public class CategoriesRepository :GenericRepository<Category>, ICategoriesRepository
+{    
+    public class ZoneRepository : GenericRepository<Zone>, IZoneRepository
     {
-        public CategoriesRepository(ConnectedOfficeContext context): base(context)
+        public ZoneRepository(ConnectedOfficeContext context) : base(context)
         {
-            
-        }        
+
+        }
     }
 }
